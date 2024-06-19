@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <title>CALCULATOR</title>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+  html{
+  background-color: black;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-size: cover;
+  font-family: Arial;
+  
+}
+button{
+  border: none;
+  font-size: x-large;
+  padding: 15px;
+  margin-left: 8px;
+  border-radius: 30px;
+  height: 60px;
+  width: 60px;
+  align-items: center;
+  align-content: center;
+  color: white;
+  background-color: rgb(48, 46, 46);
+  cursor:pointer;
+
+}
+.point{
+  padding-left: 22px;
+  
+}
+
+.font-result{
+  font-family: 'Arial';
+  font-weight: bolder;
+  background-color: white;
+  color: black;
+  padding: 10px;
+}
+.add{
+  background-color: orange;
+  color: white;
+  cursor: pointer;
+  
+}
+.subtract{
+  background-color: orange;
+  color: white;
+  cursor: pointer;
+  
+}
+.equals{
+  background-color:  rgb(48, 46, 46);
+  color: white;
+  cursor: pointer;
+  
+}
+.multiply{
+  background-color: orange;
+  color: white;
+  cursor: pointer;
+  
+}
+.divide{
+  background-color: orange;
+  color: white;
+  cursor: pointer;
+  
+}
+.clear{
+  background-color:  rgb(48, 46, 46);
+  color: white;
+  cursor: pointer;
+  width:90px;
+  height:50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+.textalign{
+  text-align: center;
+  font-size: x-large;
+}
+.font-result{
+  font-size: 45px;
+  font-family: 'Arial';
+  background-color: transparent;
+  color: white;
+  font-weight: lighter;
+
+}
+
+    </style>
+  </head>
+  <body>
+    <p class="result font-result"></p>
+
+    <p>
+      <button onclick="
+       update('1');
+        ">1</button>
+        
+      <button onclick="
+      update('2');
+      ">2</button> 
+      
+      <button onclick="
+      update('3');
+      ">3</button> 
+      
+      <button class="add" onclick="
+      update('+');
+      ">+</button> <br>
+    </p>
+    <p>
+      <button onclick="
+      update('4');
+      ">4</button> 
+
+        <button onclick="
+        update('5');
+        ">5</button> 
+
+        <button onclick="
+        update('6');
+        ">6</button> 
+
+        <button class="subtract" onclick="
+        update('-');
+        ">-</button> <br>
+
+    </p>
+    <p>
+      <button onclick="
+        update('7');
+        ">7</button> 
+        
+      <button onclick="
+      update('8');
+      ">8</button> 
+
+      <button onclick="
+      update('9');
+      ">9</button> 
+
+      <button onclick="
+      
+      update('*');
+      " class="multiply">*</button>
+    </p>
+    <p>
+      <button onclick="
+        update('0');
+      ">0</button>
+
+      <button class="point"onclick="
+        update('.');
+      " class="point">.</button>
+
+      <button onclick="
+        //console.log(num);
+        num = eval(num);
+        document.querySelector('.result').innerHTML= num;
+        localStorage.setItem('update',num)
+      " class="equals">=</button>
+
+      <button onclick="
+        update('/');
+      " class="divide">/</button>
+    </p>
+    
+
+    <p>
+      <button onclick="
+      num='';
+      document.querySelector('.result').innerHTML = num;
+      localStorage.setItem('update',num)
+      " class="clear">Clear</button>
+    </p>
+    <script> 
+    let num=localStorage.getItem('update') || '';
+    document.querySelector('.result').innerHTML = num;
+    function update(value){
+     num+=value;
+     const updatedValue=document.querySelector('.result');
+     updatedValue.innerHTML=num;
+     localStorage.setItem('update',num);
+}
+    </script>
+  </body>
+</html>
